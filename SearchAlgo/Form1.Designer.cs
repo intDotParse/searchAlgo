@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddNeigbor = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -39,9 +40,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(505, 280);
+            this.pictureBox1.Size = new System.Drawing.Size(746, 553);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -49,7 +52,7 @@
             // 
             // btnAddNeigbor
             // 
-            this.btnAddNeigbor.Location = new System.Drawing.Point(604, 66);
+            this.btnAddNeigbor.Location = new System.Drawing.Point(840, 75);
             this.btnAddNeigbor.Name = "btnAddNeigbor";
             this.btnAddNeigbor.Size = new System.Drawing.Size(75, 23);
             this.btnAddNeigbor.TabIndex = 1;
@@ -60,7 +63,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(558, 12);
+            this.comboBox1.Location = new System.Drawing.Point(794, 21);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
@@ -68,7 +71,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(558, 39);
+            this.comboBox2.Location = new System.Drawing.Point(794, 48);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
@@ -76,14 +79,14 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(558, 133);
+            this.comboBox3.Location = new System.Drawing.Point(794, 142);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 4;
             // 
             // btnShowNeigbors
             // 
-            this.btnShowNeigbors.Location = new System.Drawing.Point(586, 160);
+            this.btnShowNeigbors.Location = new System.Drawing.Point(822, 169);
             this.btnShowNeigbors.Name = "btnShowNeigbors";
             this.btnShowNeigbors.Size = new System.Drawing.Size(93, 23);
             this.btnShowNeigbors.TabIndex = 5;
@@ -95,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 304);
+            this.ClientSize = new System.Drawing.Size(960, 577);
             this.Controls.Add(this.btnShowNeigbors);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
