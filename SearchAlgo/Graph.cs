@@ -9,11 +9,11 @@ namespace SearchAlgo
     class Graph
     {
         public List<Node> nodes = new List<Node>();
-        public Graph(List<Node> nodes)
+        public void addNode(int nodeId, int x, int y,double cost = 0)
         {
-            this.nodes = nodes;
+            nodes.Add(new Node(nodeId, x, y));
         }
-
+        public void addNeighbor(Node )
 
     }
     class Node
