@@ -8,11 +8,12 @@ namespace SearchAlgo
 {
     class Graph
     {
-        public Node[] nodes;
-        public Graph()
+        public List<Node> nodes = new List<Node>();
+        public Graph(List<Node> nodes)
         {
-
+            this.nodes = nodes;
         }
+
 
     }
     class Node
@@ -20,21 +21,22 @@ namespace SearchAlgo
         private int nodeId;
         private int x;
         private int y;
-        private Node[] neighbors;
-        private int neighborCounter = 0;
+        private List<Node> neighbors = new List<Node>();
         public Node(int nodeId, int x, int y)
         {
-            this.name = nodeId;
+            this.nodeId = nodeId;
             this.x = x;
             this.y = y;
         }
-
+        public int getNodeId()
+        {
+            return this.nodeId;
+        }
         public void setNeighbors(Node neighbor)
         {
-            neighbors[neighborCounter] = neighbor;
-            neighborCounter++;
+            neighbors.Add(neighbor);
         }
-        public Node[] getAllNeigbors()
+        public List<Node> getAllNeigbors()
         {
             return neighbors;
         }
