@@ -13,7 +13,7 @@ namespace SearchAlgo
 {
     public partial class Form1 : Form
     {
-        public Node mynodes;
+        public Graph mygraph;
         public int counter;
         public void drawVertex(int posx, int posy, string label)
         {
@@ -36,7 +36,7 @@ namespace SearchAlgo
         
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            mygraph = new Graph();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,9 +53,32 @@ namespace SearchAlgo
         {
             
             drawVertex(e.X,e.Y,counter.ToString());
-            counter++;
-            mynodes = new Node(counter, e.X, e.Y);
 
+            mygraph.addNode(counter, e.X, e.Y);
+            comboBox1.Items.Add(counter.ToString());
+            comboBox2.Items.Add(counter.ToString());
+            comboBox3.Items.Add(counter.ToString());
+            counter++;
+
+        }
+
+        private void btnAddNeigbor_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(comboBox1.SelectedItem.ToString());
+            int nodeId = int.Parse(comboBox1.SelectedItem.ToString());
+            //MessageBox.Show(nodeId.ToString());
+            int NeigborNodeId = int.Parse(comboBox2.SelectedItem.ToString());
+            mygraph.setNeigbor(nodeId, NeigborNodeId);
+        }
+
+        private void btnShowNeigbors_Click(object sender, EventArgs e)
+        {
+            int nodeId = int.Parse(comboBox3.SelectedItem.ToString());
+            List<Node> neigbors = mygraph.getNeigbor(nodeId);
+            foreach (var item in neigbors) 
+            {
+                MessageBox.Show(item.getNodeId().ToString());
+            }
         }
     }
 }
