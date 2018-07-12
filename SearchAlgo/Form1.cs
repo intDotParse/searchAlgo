@@ -13,29 +13,48 @@ namespace SearchAlgo
 {
     public partial class Form1 : Form
     {
+        public Node mynodes;
+        public int counter;
+        public void drawVertex(int posx, int posy, string label)
+        {
+            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            Graphics g = pictureBox1.CreateGraphics();
+            Brush blue;
+            
+             blue = Brushes.Green;
+           
+
+            Font myFont = new Font("Arial", 8, FontStyle.Bold);
+            g.FillEllipse(blue, posx - 10, posy - 10, 20, 20);
+            g.DrawString(label, myFont, Brushes.White, new Point(posx - 7, posy - 6));
+        }
+        
         public Form1()
         {
             InitializeComponent();
         }
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Node node1 = new Node(1, 20, 20);
-            Node node2 = new Node(2, 160, 20);
-            Node node3 = new Node(3, 220, 120);
-            Node node4= new Node(4, 520, 220);
+            
+        }
 
-            node1.setNeighbors(node2);
-            node2.setNeighbors(node3);
-            node2.setNeighbors(node4);
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+          
+        }
 
-            List<Node> neighborsNode2 = node2.getAllNeigbors();
-
-            foreach (var neigbor in neighborsNode2)
-            {
-                MessageBox.Show(neigbor.getNodeId().ToString());
-            }
-
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+            drawVertex(e.X,e.Y,counter.ToString());
+            counter++;
+            mynodes = new Node(counter, e.X, e.Y);
 
         }
     }
