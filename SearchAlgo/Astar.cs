@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SearchAlgo
 {
-    public class Astar<T>
+    public class Astar
     {
         public Dictionary<Node, Node> cameFrom = new Dictionary<Node, Node>();
         public Dictionary<Node, int> costSoFar = new Dictionary<Node, int>();
@@ -20,30 +20,39 @@ namespace SearchAlgo
             //compute cost of each node from start to finish
             map.setCostEveryNodeHeuristic(end);
 
-            var a = new HashSet<Node>();
-            var closedset = new HashSet<Node>();
-            var openset = new PriorityQueue<Node>();
-            openset.Enqueue(start, 0);
 
-            cameFrom[start] = start;
-            costSoFar[start] = 0;
 
-            while(openset.Count > 0)
-            {
-                var current = openset.Dequeue();
-                if (!closedset.Contains(current))
-                {
-                    a.Add(current);
-                }
-                if (current.Equals(end))
-                {
-                    break;
-                }
-                foreach (var next in map.getNeigbor(current.getNodeId()))
-                {
-                    //int newCost=costSoFar[current]+map.wit
-                }
-            }
+
+
+
+
+
+
+
+            //var a = new HashSet<Node>();
+            //var closedset = new HashSet<Node>();
+            //var openset = new PriorityQueue<Node>();
+            //openset.Enqueue(start, 0);
+
+            //cameFrom[start] = start;
+            //costSoFar[start] = 0;
+
+            //while(openset.Count > 0)
+            //{
+            //    var current = openset.Dequeue();
+            //    if (!closedset.Contains(current))
+            //    {
+            //        a.Add(current);
+            //    }
+            //    if (current.Equals(end))
+            //    {
+            //        break;
+            //    }
+            //    foreach (var next in map.getNeigbor(current.getNodeId()))
+            //    {
+            //        //int newCost=costSoFar[current]+map.wit
+            //    }
+            //}
 
 
         }

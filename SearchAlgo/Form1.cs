@@ -89,7 +89,7 @@ namespace SearchAlgo
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            //[Astar a = new Astar(mygraph,0,5);
+            Astar a = new Astar(mygraph,new Node(2,250,250),new Node(1,50,50));
         }
     }
 }

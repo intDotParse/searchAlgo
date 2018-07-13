@@ -45,6 +45,17 @@ namespace SearchAlgo
             return null;
             
         }
+        public Node getNodeById(int nodeId)
+        {
+            foreach (var item in nodes)
+            {
+                if (item.getNodeId() == nodeId)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
         public bool containsNeigbor(Node node)
         {
             return nodes.Contains(node);
