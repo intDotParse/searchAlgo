@@ -55,7 +55,7 @@ namespace SearchAlgo
             
             drawVertex(e.X,e.Y,counter.ToString());
 
-            mygraph.addNode(counter, e.X, e.Y);
+            mygraph.addNode(new Node(counter, e.X, e.Y));
             comboBox1.Items.Add(counter.ToString());
             comboBox2.Items.Add(counter.ToString());
             comboBox3.Items.Add(counter.ToString());
@@ -89,7 +89,9 @@ namespace SearchAlgo
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            Astar a = new Astar(mygraph,new Node(2,250,250),new Node(1,50,50));
+            int start = int.Parse(comboBox1.SelectedItem.ToString());
+            int end = int.Parse(comboBox2.SelectedItem.ToString());
+            Astar a = new Astar(mygraph,mygraph.getNodeById(start),mygraph.getNodeById(end));
         }
     }
 }

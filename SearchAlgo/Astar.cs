@@ -8,18 +8,57 @@ namespace SearchAlgo
 {
     public class Astar
     {
-        public Dictionary<Node, Node> cameFrom = new Dictionary<Node, Node>();
-        public Dictionary<Node, int> costSoFar = new Dictionary<Node, int>();
         public Node start;
-        private Node end;
         private Graph map = new Graph();
-        //private Graph closedSet =new Graph();
-        //private Graph openSet = new Graph();
+        private Graph closedSet = new Graph();
+        private Graph openSet = new Graph();
+
+        public string reconstruct()
+        {
+            return "reconstructing!";
+        }
         public Astar(Graph map, Node start, Node end)
         {
             //compute cost of each node from start to finish
-            map.setCostEveryNodeHeuristic(end);
+            map.setEveryH(end);
+            //add start node to openset
+            start.g = 0;
+            openSet.addNode(start);
+            while(openSet.count() >0)
+            {
+                Node current = openSet.getLowestFScore();
+                if(current == end)
+                {
+                    reconstruct();
+                }
+                openSet.removeNode(current);
+                closedSet.addNode(current);
 
+                foreach (var neigbor in current.getAllNeigbors())
+                {
+                    if (closedSet.containsNeigbor(neigbor))
+                    {
+                        continue;
+                    }
+                    double tentativeGScore = current.g + map.heuristic(current, neigbor);
+
+                    if (!openSet.containsNeigbor(neigbor))
+                    {
+                        openSet.addNode(neigbor);
+                    }
+                    else if(tentativeGScore >= neigbor.g)
+                    {
+                        continue;
+                    }
+                    neigbor.cameFrom = current;
+                    neigbor.g = tentativeGScore;
+                    neigbor.f = neigbor.g + neigbor.h;
+
+
+                }
+            }
+
+            
 
 
 

@@ -16,6 +16,7 @@ namespace SearchAlgo
         public double h;
         private double nodeCost;
         private List<Node> neighbors = new List<Node>();
+        public Node cameFrom;
         public Node(int nodeId, int x, int y)
         {
             this.nodeId = nodeId;

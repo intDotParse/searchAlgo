@@ -9,9 +9,9 @@ namespace SearchAlgo
     public class Graph
     {
         public List<Node> nodes = new List<Node>();
-        public void addNode(int nodeId, int x, int y, double cost = 0)
+        public void addNode(Node node)
         {
-            nodes.Add(new Node(nodeId, x, y));
+            nodes.Add(new Node(node.getNodeId(),node.x,node.y));
         }
         public bool setNeigbor(int nodeId,int neighborNodeId)
         {
@@ -60,7 +60,7 @@ namespace SearchAlgo
         {
             return nodes.Contains(node);
         }
-        public List<Node> setCostEveryNodeHeuristic(Node end)
+        public List<Node> setEveryH(Node end)
         {
             foreach (var node in nodes)
             {
@@ -68,6 +68,7 @@ namespace SearchAlgo
             }
             return nodes;
         }
+       
         public double heuristic(Node a, Node b)
         {
             double dx = a.x - b.x;
@@ -82,6 +83,40 @@ namespace SearchAlgo
         public int count()
         {
             return nodes.Count;
+        }
+        public Node getLowestFScore()
+        {
+            Node[] arrayNode = new Node[this.count()];
+            int counter = 0;
+            foreach (var item in nodes)
+            {
+                arrayNode[counter] = item;
+            }
+            for (int i = 0; i < arrayNode.Length; i++)
+            {
+                Node temp;
+                if(!(arrayNode.Count() == 1))
+                {
+                    if(arrayNode[i].f > arrayNode[i + 1].f)
+                    {
+                        temp = arrayNode[i];
+                        arrayNode[i] = arrayNode[i + 1];
+                        arrayNode[i + 1] = temp;
+                    }
+                }
+                
+            }
+            return arrayNode[0];
+        }
+        public void removeNode(Node n)
+        {
+            foreach (var item in nodes)
+            {
+                if(n.getNodeId() == item.getNodeId())
+                {
+                    nodes.RemoveAt(item.getNodeId());
+                }
+            }
         }
     }
     
