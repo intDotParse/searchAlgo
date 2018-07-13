@@ -49,19 +49,11 @@ namespace SearchAlgo
         {
             return nodes.Contains(node);
         }
-        public List<Node> setCostEveryNodeHeuristic(int end)
+        public List<Node> setCostEveryNodeHeuristic(Node end)
         {
-            Node endNode = null;
-            foreach (var item in nodes)
-            {
-                if (item.getNodeId() == end)
-                {
-                    endNode = item;
-                }
-            }
             foreach (var node in nodes)
             {
-                node.h = heuristic(node,endNode);
+                node.h = heuristic(node,end);
             }
             return nodes;
         }
@@ -70,6 +62,15 @@ namespace SearchAlgo
             double dx = a.x - b.x;
             double dy = a.y - b.y;
             return Math.Sqrt(dx * dx + dy * dy);
+        }
+        //public List<Node> getLowestFScoreValue(Node a)
+        //{
+        //    List<Node> neigbors = getNeigbor(a.getNodeId());
+            
+        //}
+        public int count()
+        {
+            return nodes.Count;
         }
     }
     
