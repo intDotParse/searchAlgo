@@ -37,6 +37,7 @@ namespace SearchAlgo
         private void Form1_Load(object sender, EventArgs e)
         {
             mygraph = new Graph();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,6 +85,11 @@ namespace SearchAlgo
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            Astar a = new Astar(mygraph,0,5);
         }
     }
 }

@@ -9,8 +9,11 @@ namespace SearchAlgo
     public class Node
     {
         private int nodeId;
-        private int x;
-        private int y;
+        public int x;
+        public int y;
+        public double f;
+        public double g;
+        public double h;
         private double nodeCost;
         private List<Node> neighbors = new List<Node>();
         public Node(int nodeId, int x, int y)
